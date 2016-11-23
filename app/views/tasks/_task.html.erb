@@ -1,9 +1,10 @@
 <li>
   <%= link_to task.title, task %> |
   <%= task.due_date %> |
+  <%= link_to "Edit", edit_task_path(task) %> |
   <%= link_to "Delete", task, method: :delete, data: {confirm: "You sure?"} %> |
   <%= form_for task do |f| %>
-    <%= f.check_box :done %>
+    <%= f.hidden_field :done, value: !task.done   %>
     <%= f.submit "Done" %>
   <% end %>
 </li>
