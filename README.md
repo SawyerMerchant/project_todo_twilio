@@ -1,3 +1,11 @@
-# todo_twilio
+# Todo Twilio
 
-[The Twilio API project on Ruby on Rails from the Viking Code School](http://www.vikingcodeschool.com)
+[John Sawyer](https://github.com/SawyerMerchant)
+[Anthony Fuentes](https://github.com/anthonyfuentes)
+
+* A crud app to handle todo's
+
+
+Create a task controller
+
+tasks have: required complete date/time, description, title 
