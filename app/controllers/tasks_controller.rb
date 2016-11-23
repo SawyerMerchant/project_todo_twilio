@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks_to_do = tasks_to_do
-    @tasks_done = tasks_done
+    # @tasks_to_do = tasks_to_do
+    # @tasks_done = tasks_done
+    @tasks = Task.all
   end
 
   def show
