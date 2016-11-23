@@ -3,6 +3,8 @@
   <%= task.due_date %> |
   <%= link_to "Edit", edit_task_path(task) %> |
   <%= link_to "Delete", task, method: :delete, data: {confirm: "You sure?"} %> |
+  <%# link_to "Remind", "remind/1" %>
+  <%= form_tag
   <%= form_for task do |f| %>
     <%= f.hidden_field :done, value: !task.done   %>
     <%= f.submit "Done" %>

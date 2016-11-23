@@ -4,17 +4,18 @@ require 'twilio-ruby'
 
 class Notification
 
-  TWILIO_SID  = ENV['twilio_sid']
-  TWILIO_AUTH = ENV['twilio_auth']
-  MY_NUMBER   = ENV['my_number']
+  TWILIO_SID    = ENV['twilio_sid']
+  TWILIO_AUTH   = ENV['twilio_auth']
+  MY_NUMBER     = ENV['my_number']
+  TWILIO_NUMBER = ENV['twilio_number']
 
   def initialize(args = {})
     @client = args.fetch(:client, twilio_client)
   end
 
-  def send_message(text, receiver = MY_NUMBER)
+  def send_sms(text, receiver = MY_NUMBER)
     client.messages.create(
-      from: '+16194323588',
+      from: TWILIO_NUMBER,
       to:   receiver,
       body: text)
   end
