@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = tasks_stack
+    @tasks_to_do = tasks_to_do
+    @tasks_done = tasks_done
   end
 
   def show
@@ -33,6 +34,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    puts params
     if @task.valid? && @task.update_attributes(task_params)
       successful_task_update
     else
@@ -46,8 +48,16 @@ class TasksController < ApplicationController
       Task.order('tasks.due_date ASC').all
     end
 
+    def tasks_to_do
+      tasks_stack.select { |task| !task.done }
+    end
+
+    def tasks_done
+      tasks_stack.select { |task| task.done }
+    end
+
     def task_params
-      params.require(:task).permit(:title, :description, :due_date)
+      params.require(:task).permit(:title, :description, :due_date, :done)
     end
 
     def successful_task_creation
@@ -68,5 +78,6 @@ class TasksController < ApplicationController
       flash.now[:error] = @task.errors.full_messages
       render :edit
     end
+
 
 end
