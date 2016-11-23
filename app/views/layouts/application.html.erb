@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <% flash.each do |message_type, messages| %>
+    <ul>
+      <% messages.each do |message| %>
+        <li><strong><%= message_type %>! <%= message %></strong></li>
+      <% end %>
+    </ul>
+    <% end %>
     <%= render 'layouts/shared/main_nav' %>
     <%= yield %>
   </body>
