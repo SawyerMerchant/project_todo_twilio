@@ -1,15 +1,17 @@
+
 class TextsController < ApplicationController
 
-  def send_text
-    message = create_task_message(params[:task])
+  def create
+    task = Task.find(params[:task_id])
+    message = create_task_message(task)
     Notification.new.send_sms(message)
+    redirect_to root_path
   end
 
 
   private
 
-  def create_task_message(task_data)
-    p task_data
-  end
-
+    def create_task_message(task)
+      "#{ task.title }\n#{ task.due_date }\n#{ task.description }"
+    end
 end

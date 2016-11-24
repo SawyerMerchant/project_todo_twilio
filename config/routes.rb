@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root 'tasks#index'
-  resources :tasks
-  get 'remind/:id', to: 'texts#send_text'
+  resources :tasks do
+    resources :texts, only: [:create]
+  end
 
 end

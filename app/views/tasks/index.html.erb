@@ -4,7 +4,9 @@
   <%= render @tasks_to_do %>
 </ul>
 
-<h2>Completed Tasks</h2>
-<ul>
-  <%= render @tasks_done %>
-</ul>
+<% if @tasks_done.any? %>
+  <h2>Completed Tasks</h2>
+  <ul>
+    <%= render @tasks_done %>
+  </ul>
+<% end %>

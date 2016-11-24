@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   def index
      @tasks_to_do = tasks_to_do
      @tasks_done = tasks_done
-    #@tasks = Task.all
   end
 
   def show
@@ -35,8 +34,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    puts params
-    if @task.valid? && @task.update_attributes(task_params)
+    if @task.update(task_params)
       successful_task_update
     else
       failed_task_update
@@ -79,6 +77,4 @@ class TasksController < ApplicationController
       flash.now[:error] = @task.errors.full_messages
       render :edit
     end
-
-
 end
