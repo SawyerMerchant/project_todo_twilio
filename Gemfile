@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
+
+gem 'binding_of_caller'
 
 # Twilio - https://github.com/twilio/twilio-ruby
 gem 'twilio-ruby', '~> 4.11.1'

@@ -70,7 +70,7 @@ class TasksController < ApplicationController
 
     def successful_task_update
       flash[:success] = ["Task Updated"]
-      redirect_to @task
+      redirect_to tasks_path
     end
 
     def failed_task_update

@@ -5,6 +5,9 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
 
+  <%= f.label :priority %>
+  <%= f.select(:priority, options_for_select(1..5)) %>
+
   <%= f.label :due_date %>
   <%= f.date_field :due_date, min: Time.now %>
 
